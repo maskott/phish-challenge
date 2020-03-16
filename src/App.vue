@@ -1,12 +1,30 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link :to="{ name: 'random' }">Random Show</router-link>
     </div>
-    <router-view />
+    <JukeBox :tracks="tracks" :activeTrack="nowPlaying" />
+    <router-view @set-tracks="setTracks" />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      tracks: [],
+      nowPlaying: null
+    };
+  },
+  methods: {
+    setTracks(tracks, index) {
+      this.tracks = tracks;
+      this.nowPlaying = index;
+    }
+  }
+};
+</script>
 
 <style>
 #app {
@@ -15,6 +33,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  max-width: 600px;
+  margin: auto;
 }
 
 #nav {
