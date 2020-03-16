@@ -3,7 +3,10 @@
     <div class="juke-box">
       <div class="flex">
         <div class="icon">
-          <i class="fad fa-boombox fa-3x"></i>
+          <i
+            class="fad fa-boombox fa-3x"
+            style="--fa-secondary-color: darkblue;"
+          ></i>
         </div>
         <div class="controls">
           <a class="play-pause" @click="toggleStatus" v-show="isTrackLoaded">
