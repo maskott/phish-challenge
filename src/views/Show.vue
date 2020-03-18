@@ -1,6 +1,6 @@
 <template>
   <div class="show">
-    <h1>Specific Show</h1>
+    <h1 class="title">Specific Show</h1>
     <ShowCard :show="show" @set-tracks="setTracks" />
   </div>
 </template>

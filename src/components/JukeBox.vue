@@ -182,6 +182,7 @@ export default {
   margin: 1rem 0;
   display: block;
   position: relative;
+  min-height: 90px;
 }
 .juke-box div.flex {
   display: flex;
@@ -223,7 +224,7 @@ input[type="range"][orient="vertical"] {
   writing-mode: bt-lr; /* IE */
   -webkit-appearance: slider-vertical; /* WebKit */
   width: 1rem;
-  height: 50px;
+  height: 40px;
   padding: 0 5px;
 }
 </style>

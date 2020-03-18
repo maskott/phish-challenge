@@ -1,11 +1,11 @@
 <template>
-  <div class="show" v-if="show">
-    <h4 class="location">
+  <div class="show box" v-if="show">
+    <h4 class="location subtitle">
       <i class="fad fa-map-marker-alt"></i>
       {{ show.venue ? show.venue.location : "" }}
     </h4>
-    <h4><i class="fad fa-calendar"></i> {{ show.date }}</h4>
-    <h2>
+    <h4 class="subtitle"><i class="fad fa-calendar"></i> {{ show.date }}</h4>
+    <h2 class="title">
       <router-link
         v-if="show.id"
         :to="{ name: 'show', params: { id: show.id } }"
@@ -15,7 +15,7 @@
     </h2>
 
     <div v-for="set in sets" :key="set">
-      <h3>{{ set }}</h3>
+      <h3 class="title">{{ set }}</h3>
       <ul class="tracks">
         <li
           v-for="track in tracksBySet[set]"
@@ -70,11 +70,7 @@ export default {
 
 <style scoped>
 .show {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
   text-align: left;
-  padding: 0.1rem 1rem;
 }
 .location {
   float: right;

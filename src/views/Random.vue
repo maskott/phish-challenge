@@ -1,6 +1,6 @@
 <template>
   <div class="random">
-    <h1>Random Show</h1>
+    <h1 class="title">Random Show</h1>
     <ShowCard :show="show" @set-tracks="updateTracks" />
   </div>
 </template>
