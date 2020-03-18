@@ -1,25 +1,23 @@
 <template>
   <section>
-    <div class="juke-box">
-      <div class="flex">
-        <div class="icon">
+    <div class="juke-box box">
+      <div class="columns is-vcentered">
+        <div class="column is-3 icons has-text-left">
           <i
             class="fad fa-boombox fa-3x"
             style="--fa-secondary-color: darkblue;"
           ></i>
+          <i
+            class="fad fa-3x"
+            @click="toggleStatus"
+            v-show="isTrackLoaded"
+            :class="{
+              'fa-play-circle': !isPlaying,
+              'fa-pause-circle': isPlaying
+            }"
+          ></i>
         </div>
-        <div class="controls">
-          <a class="play-pause" @click="toggleStatus" v-show="isTrackLoaded">
-            <i
-              class="fad fa-3x"
-              :class="{
-                'fa-play-circle': !isPlaying,
-                'fa-pause-circle': isPlaying
-              }"
-            ></i>
-          </a>
-        </div>
-        <div class="status">
+        <div class="column status">
           <h5 class="current-track">
             {{
               tracks.length
@@ -48,7 +46,10 @@
             </span>
           </h6>
         </div>
-        <div class="spinner" v-show="isTrackLoaded">
+        <div
+          class="column is-3 spinner has-text-right is-vertical-center"
+          v-show="isTrackLoaded"
+        >
           <i
             class="fad fa-compact-disc fa-2x"
             :class="{ 'fa-spin': isPlaying }"
@@ -58,8 +59,6 @@
             class="fad fa-compact-disc fa-2x"
             :class="{ 'fa-spin': isPlaying }"
           ></i>
-        </div>
-        <div class="volume" v-show="isTrackLoaded">
           <input
             type="range"
             min="0"
@@ -70,9 +69,14 @@
           />
         </div>
       </div>
-      <div class="progress">
-        <div class="played" :style="{ width: progress + '%' }"></div>
-      </div>
+      <progress
+        class="progress is-primary"
+        v-show="isTrackLoaded"
+        :value="progress"
+        max="100"
+      >
+        {{ progress }}%
+      </progress>
     </div>
   </section>
 </template>
@@ -175,47 +179,24 @@ export default {
 
 <style scoped>
 .juke-box {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
-  text-align: center;
-  margin: 1rem 0;
-  display: block;
   position: relative;
-  min-height: 90px;
+  margin-bottom: 2rem;
 }
-.juke-box div.flex {
-  display: flex;
-  flex-direction: row;
-  padding: 1rem 1rem;
-  align-items: center;
+
+.juke-box .icons i.fad:first-of-type {
+  margin-right: 0.5rem;
 }
-.juke-box .fad {
-  margin: 0 0.5rem 0 0;
-}
-.flex .status {
-  flex-grow: 1;
-}
+
 .juke-box .status h5,
 .juke-box .status h6 {
   margin: 0;
   padding: 0;
 }
+
 .juke-box .progress {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 0.5rem;
-  background-color: rgba(44, 62, 80, 0.4);
-}
-.juke-box .progress .played {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: rgb(44, 62, 80);
 }
 .active {
   font-weight: bolder;
@@ -224,7 +205,11 @@ input[type="range"][orient="vertical"] {
   writing-mode: bt-lr; /* IE */
   -webkit-appearance: slider-vertical; /* WebKit */
   width: 1rem;
-  height: 40px;
-  padding: 0 5px;
+  height: 60px;
+  padding: 0 1rem;
+}
+.is-vertical-center {
+  display: flex;
+  align-items: center;
 }
 </style>
