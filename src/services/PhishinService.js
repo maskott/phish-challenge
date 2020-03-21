@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://phishin.skott.us/",
+  baseURL: "https://phishin.skott.us/",
   timeout: 1000,
   headers: {
     Accept: "application/json"
