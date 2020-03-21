@@ -3,10 +3,7 @@
     <div class="juke-box box">
       <div class="columns is-vcentered">
         <div class="column is-3 icons has-text-left">
-          <i
-            class="fad fa-boombox fa-3x"
-            style="--fa-secondary-color: darkblue;"
-          ></i>
+          <i class="fad fa-boombox fa-3x" style="--fa-secondary-color: darkblue;"></i>
           <i
             class="fad fa-3x"
             @click="toggleStatus"
@@ -17,12 +14,12 @@
             }"
           ></i>
         </div>
-        <div class="column status">
-          <h5 class="current-track">
+        <div class="column status is-size-7">
+          <h5 class="current-track has-text-weight-bold">
             {{
-              tracks.length
-                ? tracks[activeTrack].title
-                : "Please select a track"
+            tracks.length
+            ? tracks[activeTrack].title
+            : "Please select a track"
             }}
           </h5>
           <h6 v-if="tracks.length">
@@ -39,26 +36,32 @@
             </span>
             <span v-else>
               {{
-                tracks[activeTrack]
-                  ? tracks[activeTrack].duration
-                  : 0 | songDuration
+              tracks[activeTrack]
+              ? tracks[activeTrack].duration
+              : 0 | songDuration
               }}
             </span>
           </h6>
         </div>
-        <div
-          class="column is-3 spinner has-text-right is-vertical-center"
-          v-show="isTrackLoaded"
-        >
-          <i
-            class="fad fa-compact-disc fa-2x"
-            :class="{ 'fa-spin': isPlaying }"
-          ></i>
-          <i class="fad fa-cassette-tape fa-2x"></i>
-          <i
-            class="fad fa-compact-disc fa-2x"
-            :class="{ 'fa-spin': isPlaying }"
-          ></i>
+        <div class="column is-3 has-text-right is-vertical-center">
+          <div class="spinner">
+            <i
+              class="fad fa-cassette-tape fa-4x"
+              style="--fa-primary-opacity: 0.5; --fa-secondary-opacity: 0.2;"
+            ></i>
+            <i
+              class="fad fa-compact-disc fa-swap-opacity"
+              style="--fa-primary-color: white; --fa-secondary-color: black;"
+              :class="{ 'fa-spin': isPlaying }"
+              v-show="isTrackLoaded"
+            ></i>
+            <i
+              class="fad fa-compact-disc fa-swap-opacity"
+              style="--fa-primary-color: white; --fa-secondary-color: black;"
+              :class="{ 'fa-spin': isPlaying }"
+              v-show="isTrackLoaded"
+            ></i>
+          </div>
           <input
             type="range"
             min="0"
@@ -66,6 +69,7 @@
             step="0.5"
             v-model="volume"
             orient="vertical"
+            :disabled="!isTrackLoaded"
           />
         </div>
       </div>
@@ -74,9 +78,7 @@
         v-show="isTrackLoaded"
         :value="progress"
         max="100"
-      >
-        {{ progress }}%
-      </progress>
+      >{{ progress }}%</progress>
     </div>
   </section>
 </template>
@@ -211,5 +213,22 @@ input[type="range"][orient="vertical"] {
 .is-vertical-center {
   display: flex;
   align-items: center;
+}
+.spinner {
+  position: relative;
+}
+.spinner i.fad:not(:first-child) {
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+}
+.spinner i.fad:nth-child(1) {
+  z-index: 10;
+}
+.spinner i.fad:nth-child(2) {
+  left: 0.64rem;
+}
+.spinner i.fad:nth-child(3) {
+  left: 2.385rem;
 }
 </style>

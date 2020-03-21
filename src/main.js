@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import JukeBox from "@/components/JukeBox.vue";
-import "bulma/css/bulma.css";
+// import "bulma/css/bulma.css";
 
 Vue.component("JukeBox", JukeBox);
 

@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+$body-background-color: mintcream;
+$progress-bar-background-color: hsl(0, 0%, 86%);
+
+@import "../../node_modules/bulma/bulma.sass";
+@import '../../node_modules/bulma-tooltip/src/sass/index.sass';

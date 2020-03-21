@@ -4,14 +4,16 @@
       <i class="fad fa-map-marker-alt"></i>
       {{ show.venue ? show.venue.location : "" }}
     </h4>
-    <h4><i class="fad fa-calendar"></i> {{ show.date }}</h4>
+    <h4>
+      <i class="fad fa-calendar"></i>
+      {{ show.date }}
+    </h4>
     <h2 class="subtitle">
       <router-link
         v-if="show.id"
         :to="{ name: 'show', params: { id: show.id } }"
         class="show-link"
-        >{{ show.venue_name }}</router-link
-      >
+      >{{ show.venue_name }}</router-link>
     </h2>
 
     <div v-for="set in sets" :key="set">
@@ -21,10 +23,8 @@
           v-for="track in tracksBySet[set]"
           :key="track.id"
           @click.prevent="setTracks(track.id)"
-          :title="track.duration | songDuration"
-        >
-          {{ track.title }}
-        </li>
+          :data-tooltip="track.duration | songDuration"
+        >{{ track.title }}</li>
       </ul>
     </div>
 
@@ -93,17 +93,11 @@ ul.tracks {
 }
 ul.tracks li {
   display: inline;
-  padding-right: 0.25rem;
+  padding-right: 1rem;
   cursor: pointer;
 }
 ul.tracks li:hover {
   color: black;
-}
-ul.tracks li:not(:first-child):before {
-  display: inline-block;
-  content: "\2023";
-  color: gray;
-  margin-right: 0.25rem;
 }
 .duration {
   float: right;
