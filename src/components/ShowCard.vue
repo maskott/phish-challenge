@@ -1,5 +1,5 @@
 <template>
-  <div class="show box" v-if="show">
+  <div class="show box" v-if="show.date">
     <h4 class="location">
       <i class="fad fa-map-marker-alt"></i>
       {{ show.venue ? show.venue.location : "" }}

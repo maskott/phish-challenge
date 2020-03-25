@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link :to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link :to="{ name: 'find' }">Find a Show</router-link>&nbsp;|&nbsp;
       <router-link :to="{ name: 'random' }">Random Show</router-link>
     </div>
     <JukeBox :tracks="tracks" :activeTrack="nowPlaying" />

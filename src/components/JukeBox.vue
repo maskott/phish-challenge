@@ -43,7 +43,7 @@
             </span>
           </h6>
         </div>
-        <div class="column is-3 has-text-right is-vertical-center">
+        <div class="column is-2 has-text-right is-vertical-center">
           <div class="spinner">
             <i
               class="fad fa-cassette-tape fa-4x"
