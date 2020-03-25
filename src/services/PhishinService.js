@@ -17,9 +17,9 @@ export default {
     return apiClient.get("/shows/" + id);
   },
   getEras() {
-    return apiClient.get("/eras")
+    return apiClient.get("/eras");
   },
   getYear(year) {
-    return apiClient.get("/years/" + year)
+    return apiClient.get("/years/" + year);
   }
 };

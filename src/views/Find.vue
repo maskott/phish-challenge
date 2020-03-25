@@ -13,7 +13,7 @@
                   v-for="(years, era, index) in eras"
                   :key="era"
                   @click.prevent="setSelectedEra(era, index)"
-                  :class="{'is-active': index == selectedEraIndex}"
+                  :class="{ 'is-active': index == selectedEraIndex }"
                 >
                   <a>{{ era }}</a>
                 </li>
@@ -33,7 +33,7 @@
                 <option
                   v-for="(year, index) in eras[selectedEra]"
                   :key="year"
-                  :class="{'is-active': index == selectedYearIndex}"
+                  :class="{ 'is-active': index == selectedYearIndex }"
                 >{{ year }}</option>
               </select>
             </div>
@@ -75,7 +75,7 @@ export default {
       this.selectedEraIndex = index;
       this.selectedEra = era;
       this.selectedYearIndex = 0;
-      this.selectedYear = this.eras[this.selectedEra][this.selectedEraIndex];
+      this.selectedYear = this.eras[this.selectedEra][this.selectedYearIndex];
     },
     getEras: function() {
       PhishinService.getEras()

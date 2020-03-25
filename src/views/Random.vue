@@ -5,7 +5,11 @@
         <h1 class="title">Random Show</h1>
       </div>
       <div class="column is-3">
-        <button class="button is-primary" @click="loadRandomShow" :class="{'is-loading': loading}">
+        <button
+          class="button is-primary is-medium"
+          @click="loadRandomShow"
+          :class="{ 'is-loading': loading }"
+        >
           <span class="icon">
             <i class="fad fa-random"></i>
           </span>
