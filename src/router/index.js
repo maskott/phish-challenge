@@ -29,6 +29,12 @@ const routes = [
     name: "show",
     component: () => import(/* webpackChunkName: "show" */ "@/views/Show.vue"),
     props: true
+  },
+  {
+    path: "/challenge",
+    name: "challenge",
+    component: () =>
+      import(/* webpackChunkName: "challenge" */ "@/views/Challenge.vue")
   }
 ];
 
