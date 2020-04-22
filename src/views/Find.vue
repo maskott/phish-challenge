@@ -34,7 +34,8 @@
                   v-for="(year, index) in eras[selectedEra]"
                   :key="year"
                   :class="{ 'is-active': index == selectedYearIndex }"
-                >{{ year }}</option>
+                  >{{ year }}</option
+                >
               </select>
             </div>
           </div>
@@ -49,7 +50,8 @@
           :key="show.id"
           :to="{ name: 'show', params: { id: show.id } }"
           class="list-item"
-        >{{ show.date }}: {{ show.venue_name }}</router-link>
+          >{{ show.date }}: {{ show.venue_name }}</router-link
+        >
       </div>
     </div>
   </section>
@@ -110,5 +112,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

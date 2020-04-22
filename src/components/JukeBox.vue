@@ -3,7 +3,10 @@
     <div class="juke-box box">
       <div class="columns is-vcentered">
         <div class="column is-3 icons has-text-left">
-          <i class="fad fa-boombox fa-3x" style="--fa-secondary-color: darkblue;"></i>
+          <i
+            class="fad fa-boombox fa-3x"
+            style="--fa-secondary-color: darkblue;"
+          ></i>
           <i
             class="fad fa-3x"
             @click="toggleStatus"
@@ -17,9 +20,9 @@
         <div class="column status is-size-7">
           <h5 class="current-track has-text-weight-bold">
             {{
-            tracks.length
-            ? tracks[activeTrack].title
-            : "Please select a track"
+              tracks.length
+                ? tracks[activeTrack].title
+                : "Please select a track"
             }}
           </h5>
           <h6 v-if="tracks.length">
@@ -36,9 +39,9 @@
             </span>
             <span v-else>
               {{
-              tracks[activeTrack]
-              ? tracks[activeTrack].duration
-              : 0 | songDuration
+                tracks[activeTrack]
+                  ? tracks[activeTrack].duration
+                  : 0 | songDuration
               }}
             </span>
           </h6>
@@ -78,7 +81,8 @@
         v-show="isTrackLoaded"
         :value="progress"
         max="100"
-      >{{ progress }}%</progress>
+        >{{ progress }}%</progress
+      >
     </div>
   </section>
 </template>

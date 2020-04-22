@@ -13,8 +13,7 @@ const routes = [
   {
     path: "/find",
     name: "find",
-    component: () =>
-      import(/* webpackChunkName: "find" */ "@/views/Find.vue")
+    component: () => import(/* webpackChunkName: "find" */ "@/views/Find.vue")
   },
   {
     path: "/random",

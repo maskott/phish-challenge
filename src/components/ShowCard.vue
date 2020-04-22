@@ -13,7 +13,8 @@
         v-if="show.id"
         :to="{ name: 'show', params: { id: show.id } }"
         class="show-link"
-      >{{ show.venue_name }}</router-link>
+        >{{ show.venue_name }}</router-link
+      >
     </h2>
 
     <div v-for="set in sets" :key="set">
@@ -24,7 +25,9 @@
           :key="track.id"
           @click.prevent="setTracks(track.id)"
           :data-tooltip="track.duration | songDuration"
-        >{{ track.title }}</li>
+        >
+          {{ track.title }}
+        </li>
       </ul>
     </div>
 
